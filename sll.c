@@ -1,5 +1,8 @@
 /*
-Single linked list
+Program: Single linked list
+Description: A C implementation of Single linked list
+
+Author: Kongkon Jyoti Dutta
 */
 
 #include <stdio.h>

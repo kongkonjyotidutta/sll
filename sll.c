@@ -20,11 +20,38 @@ struct node * insert_node(int data);
 struct node * delete_node(int data);
 int count_node(struct node *);
 int traverse_list(struct node *);
+struct node * sll_insert_node();
 
 
 int menu()
 {
 int item = 0;
+int choice = 0;
+
+printf("****Menu***\n");
+printf("What do you want to do:\n");
+printf("1. Insert Operation \n");
+printf("2. Delete Operation \n");
+printf("3. Display List Operation \n");
+printf("***********\n");
+scanf("%d", &choice);
+
+switch (choice)
+{
+	case 1: 
+		sll_insert_node();
+		break;
+/*
+	case 2: 
+		delete_node();
+		break;
+*/
+	case 3: 
+	default:
+		traverse_list(first);
+		break;
+}
+
 
 return item;
 }
@@ -32,6 +59,18 @@ return item;
 /*
 * This routine will insert a new node to the left hand side of a linked list. And make this new node as the first node after insertion.
 */
+struct node * insert_node(int data);
+
+struct node * sll_insert_node()
+{
+int data;
+
+printf("Data to be added:");
+scanf("%d", &data);
+
+return (insert_node(data));
+}
+
 struct node * insert_node(int data)
 {
         struct node * temp = NULL;
@@ -98,12 +137,15 @@ int traverse_list(struct node *list_head)
 
 main()
 {
+
 insert_node(30);
 insert_node(40);
 insert_node(50);
 insert_node(60);
 insert_node(70);
 traverse_list(first);
+
+menu();
 
 delete_node(50);
 traverse_list(first);

@@ -24,6 +24,18 @@ int traverse_list(struct node *);
 struct node * sll_insert_node();
 struct node * sll_delete_node();
 
+int find_menu(int option, int data);
+int sll_find_menu();
+int find_first(struct node *list_head, int data);
+int find_last(struct node *list_head, int data);
+int find_count(struct node *list_head, int data);
+
+int sll_find_menu()
+{
+	printf("test\n");
+	find_menu(1, 11);
+	printf("done\n");
+}
 
 int menu()
 {
@@ -36,6 +48,7 @@ int choice = 0;
 	printf("2. Delete Operation \n");
 	printf("3. Count List Nodes Operation \n");
 	printf("4. Display List Operation \n");
+	printf("5. Find in List\n");
 	printf("0. Quit\n");
 	printf("***********\n");
 	printf("Choice please: ");
@@ -65,6 +78,11 @@ int choice = 0;
 		default:
 			traverse_list(first);
 			break;
+
+		case 5:
+			sll_find_menu();
+			break;
+
 	}
 
 	menu();
@@ -195,9 +213,43 @@ int traverse_list(struct node *list_head)
 }
 
 /* Searches the list and finds the first matching node */
-int search_first(struct node *list_head)
+int find_first(struct node *list_head, int data)
 {
 
+}
+
+/* Searches the list and finds the last matching node */
+int find_last(struct node *list_head, int data)
+{
+
+}
+
+/* Searches the list and finds the count of number of matching nodes */
+int find_count(struct node *list_head, int data)
+{
+
+}
+
+int find_menu(int option, int data)
+{
+	switch(option)
+	{
+		case 1: 
+			printf("Find First instance\n");
+			find_first(first, data);
+			break;
+		
+		case 2: 
+			printf("Find Last instance\n");
+			find_last(first, data);
+			break;
+
+		default:
+			find_count(first, data);
+			break;
+	}
+
+return 0;
 }
 
 /* Count nodes in the list */
@@ -224,29 +276,8 @@ int sll_count_list(struct node *list_head)
 main()
 {
 
-#if 0
-insert_node(30);
-traverse_list(first);
-delete_node(50);
-traverse_list(first);
-delete_node(30);
-traverse_list(first);
-insert_node(40);
-traverse_list(first);
-delete_node(40);
-traverse_list(first);
-insert_node(50);
-traverse_list(first);
-insert_node(60);
-traverse_list(first);
-insert_node(70);
-traverse_list(first);
+	menu();
 
-#endif
-menu();
-
-delete_node(50);
-traverse_list(first);
 return 0;
 }
 

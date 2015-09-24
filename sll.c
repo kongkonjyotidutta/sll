@@ -34,7 +34,8 @@ int choice = 0;
 	printf("What do you want to do:\n");
 	printf("1. Insert Operation \n");
 	printf("2. Delete Operation \n");
-	printf("3. Display List Operation \n");
+	printf("3. Count List Nodes Operation \n");
+	printf("4. Display List Operation \n");
 	printf("0. Quit\n");
 	printf("***********\n");
 	printf("Choice please: ");
@@ -53,10 +54,14 @@ int choice = 0;
 
 		case 2: 
 			sll_delete_node();
-			traverse_list(first);
+			//traverse_list(first);
 			break;
 
 		case 3: 
+			sll_count_list(first);
+			break;
+		
+		case 4:
 		default:
 			traverse_list(first);
 			break;
@@ -127,6 +132,9 @@ struct node * delete_node(int data)
 struct node * current = first, *prev;
 //search the list for the first occurance of "data". If no node with "data" found then the list remains the same.
 
+	// Another special case of deleting null list
+	if(!current)
+		return first;
 
 	// Special treatment for the deletion of the first node
 	//if ((current == first) && (current->data == data))
@@ -192,9 +200,31 @@ int search_first(struct node *list_head)
 
 }
 
+/* Count nodes in the list */
+int count_list(struct node *list_head)
+{
+	struct node *temp;
+	int count = 0;
+	temp = first;
+	
+	while(temp)
+	{
+		count++;
+		temp = temp->next;
+	}
+return count;
+}
+
+int sll_count_list(struct node *list_head)
+{
+	int count;
+	count = count_list(list_head);
+	printf("Total number of nodes = %d\n", count);
+}
 main()
 {
 
+#if 0
 insert_node(30);
 traverse_list(first);
 delete_node(50);
@@ -203,7 +233,6 @@ delete_node(30);
 traverse_list(first);
 insert_node(40);
 traverse_list(first);
-#if 1
 delete_node(40);
 traverse_list(first);
 insert_node(50);
@@ -213,11 +242,11 @@ traverse_list(first);
 insert_node(70);
 traverse_list(first);
 
+#endif
 menu();
 
 delete_node(50);
 traverse_list(first);
-#endif
 return 0;
 }
 

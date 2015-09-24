@@ -151,6 +151,13 @@ struct node * current = first, *prev;
 		return first;
 	}
  	
+	// Another special case when deleting the last node
+	if (current->next == NULL)
+	{
+		free(current);
+		prev->next = NULL;
+		return first;
+	}
         prev->next = current->next;
         free(current);
 #endif

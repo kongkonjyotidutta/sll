@@ -3,6 +3,7 @@ Program: Single linked list
 Description: A C implementation of Single linked list
 
 Author: Kongkon Jyoti Dutta
+Module: SLL
 */
 
 #include <stdio.h>

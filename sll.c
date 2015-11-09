@@ -215,7 +215,7 @@ int traverse_list(struct node *list_head)
 /* Searches the list and finds the first matching node */
 int find_first(struct node *list_head, int data)
 {
-
+	printf("Find First\n");
 }
 
 /* Searches the list and finds the last matching node */
